@@ -5,25 +5,11 @@ Integer tempus, ante quis scelerisque consectetur, ligula purus sodales mi, vel 
 `;
 
 export default async function getResponse(userEmail, prompt) {
-  const response = await fetch("http://localhost:3000/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: userEmail,
-      prompt: prompt
-    })
-  });
-  const res = (await response.json()).response;
-  console.log(res);
-  return res;
+  const delay = (millis) =>
+    new Promise((resolve, reject) => {
+      setTimeout((_) => resolve(), millis);
+    });
+  await delay(1000);
 
-  // const delay = (millis) =>
-  //   new Promise((resolve, reject) => {
-  //     setTimeout((_) => resolve(), millis);
-  //   });
-  // await delay(1000);
-
-  // return loremIpsum;
+  return loremIpsum;
 }
